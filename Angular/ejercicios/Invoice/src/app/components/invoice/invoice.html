@@ -1,56 +1,64 @@
-<div>
-  <div>
-    <h2>Factura</h2>
-    <div>
-      <ul>
-        <li>No. {{ invoice.id }}</li>
-      </ul>
+<div class="container">
+  <div class="card my-4">
+    <div class="card-header">
+      <h2>Factura</h2>
     </div>
-    <div>
-      <h3>Empresa</h3>
-      <ul>
-        <li>RUC: {{ invoice.company?.ruc }}</li>
-        <li>Nombre: {{ invoice.company?.name }}</li>
-        <li>
-          Dirección: {{ invoice.company?.address?.city }} -
-          {{ invoice.company?.address?.principalStreet }} -
-          {{ invoice.company?.address?.secondaryStreet }} -
-          {{ invoice.company?.address?.code }}
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h3>Cliente</h3>
-      <ul>
-        <li>Cedula: {{ invoice.customer.id }}</li>
-        <li>Nombre: {{ invoice.customer.name }}</li>
-        <li>Apellido: {{ invoice.customer.surname }}</li>
-        <li>
-          Dirección: {{ invoice.customer.address.city }} -
-          {{ invoice.customer.address.principalStreet }} -
-          {{ invoice.customer.address.secondaryStreet }} -
-          {{ invoice.customer.address.code }}
-        </li>
-      </ul>
-    </div>
-    <div>
-      <table>
-        <thead>
-          <th>Producto</th>
-          <th>Precio Unitario</th>
-          <th>Cantidad</th>
-        </thead>
-        <tbody>
-          @for (item of invoice.items; track $index){
+    <div class="card-body">
+      <div>
+        <ul>
+          <li>No. {{ invoice.id }}</li>
+        </ul>
+      </div>
+      <div class="row align-items-start">
+        <div class="col">
+          <h3>Empresa</h3>
+          <ul class="list-group">
+            <li class="list-group" >RUC: {{ invoice.company?.ruc }}</li>
+            <li class="list-group" >Nombre: {{ invoice.company?.name }}</li>
+            <li class="list-group" >
+              Dirección: {{ invoice.company?.address?.city }} -
+              {{ invoice.company?.address?.principalStreet }} -
+              {{ invoice.company?.address?.secondaryStreet }} -
+              {{ invoice.company?.address?.code }}
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>Cliente</h3>
+          <ul class="list-group">
+            <li class="list-group-item">Cedula: {{ invoice.customer.id }}</li>
+            <li class="list-group-item">Nombre: {{ invoice.customer.name }}</li>
+            <li class="list-group-item">
+              Apellido: {{ invoice.customer.surname }}
+            </li>
+            <li class="list-group-item">
+              Dirección: {{ invoice.customer.address.city }} -
+              {{ invoice.customer.address.principalStreet }} -
+              {{ invoice.customer.address.secondaryStreet }} -
+              {{ invoice.customer.address.code }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-5">
+        <table class="table" >
+          <thead>
+            <th>Producto</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+          </thead>
+          <tbody>
+            @for (item of invoice.items; track $index){
 
-          <tr>
-            <td>{{ item.product.name }}</td>
-            <td>{{ item.product.price }}</td>
-            <td>{{ item.quantity }}</td>
-          </tr>
-          }
-        </tbody>
-      </table>
+            <tr>
+              <td>{{ item.product.name }}</td>
+              <td>{{ item.product.price }}</td>
+              <td>{{ item.quantity }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
