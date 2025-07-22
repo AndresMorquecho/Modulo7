@@ -1,50 +1,12 @@
 <div class="card">
   <div class="row align-items-start">
     <div class="col">
-      <div
-        class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-      >
-        <h1>Curso</h1>
-      </div>
       <div>
-        <ul>
-          <li>
-            <h3>ID: {{ courses.id }}</h3>
-          </li>
-          <li>
-            <h3>Nombre: {{ courses.name }}</h3>
-          </li>
-        </ul>
+        <curso-view [coursespro]="courses"></curso-view>
       </div>
     </div>
     <div class="col">
-      <h2>Estudiantes</h2>
-      <table class="table">
-        <thead>
-          <th>N°</th>
-          <th>Identificación</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-        </thead>
-        <tbody class="table-group-divider">
-          @for (item of courses.students; track $index) {
-          <tr>
-            <td>
-              {{ $index + 1 }}
-            </td>
-            <td>
-              {{ item.identification }}
-            </td>
-            <td>
-              {{ item.name }}
-            </td>
-            <td>
-              {{ item.surname }}
-            </td>
-          </tr>
-          }
-        </tbody>
-      </table>
+      <students-list-view [students]="courses.students"></students-list-view>
     </div>
   </div>
 </div>

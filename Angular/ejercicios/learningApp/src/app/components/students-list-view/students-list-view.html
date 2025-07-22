@@ -1,0 +1,14 @@
+<h2>Estudiantes</h2>
+<table class="table">
+  <thead>
+    <th>N°</th>
+    <th>Identificación</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+  </thead>
+  <tbody class="table-group-divider">
+    @for (item of students; track $index) {
+    <tr item-row-student [item]="item"></tr>
+    }
+  </tbody>
+</table>

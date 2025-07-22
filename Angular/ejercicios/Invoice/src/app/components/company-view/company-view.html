@@ -1,0 +1,11 @@
+<h3>Empresa</h3>
+<ul class="list-group">
+  <li class="list-group">RUC: {{ company!.ruc }}</li>
+  <li class="list-group">Nombre: {{ company!.name }}</li>
+  <li class="list-group">
+    Dirección: {{ company!.address!.city }} -
+    {{ company!.address!.principalStreet }} -
+    {{ company!.address!.secondaryStreet }} -
+    {{ company!.address!.code }}
+  </li>
+</ul>

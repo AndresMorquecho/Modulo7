@@ -4,7 +4,7 @@ import { InvoiceItem } from './invoiceItem';
 
 export class Invoicemodel {
   id?: string;
-  company?: company;
+  company!: company;
   customer!: customers;
   items!: InvoiceItem[];
 }
